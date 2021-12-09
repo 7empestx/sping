@@ -1,0 +1,20 @@
+while true;
+	do
+		# Get and print Date
+		date > date
+		date;	
+		# Get and store sally server status
+		nc -v -w 1 sally.cs.unlv.edu -z 22 |& tee log;
+		sed -i '1r log' logs
+		
+		# Get and store bobby server status
+		nc -v -w 1 bobby.cs.unlv.edu -z 22 |& tee log;		
+		sed -i '1r log' logs
+		
+		# Timestamp data
+		sed -i '1r date' logs
+		
+		# Wait 30 seconds before next query.
+		sleep 30;
+	done;
+
